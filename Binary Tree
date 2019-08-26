@@ -1,0 +1,4 @@
+•	Each Node has only 1 parent i.e. each node is pointed to by just one other node except root.
+•	Each node has exactly 2 links, left link is called left child and right link is called right child.
+•	Each link points to a binary tree, a tree whose root is the referenced node.
+•	Binary tree can be either a null link or a node with left link and right link.
