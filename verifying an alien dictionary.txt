@@ -1,0 +1,42 @@
+class Solution(object):
+    def compare(self, s1, s2, orderMap):
+        j = 0
+        l = len(s1)
+        for i in range(l):
+            if (j >= len(s2)):
+                return False
+            if (orderMap[s1[i]] < orderMap[s2[j]]):
+                return True
+            elif ( orderMap[s1[i]] == orderMap[s2[j]]):
+                j += 1
+                continue
+            else:
+                return False
+        return True
+    
+    
+    
+    def isAlienSorted(self, words, order):
+        """
+        :type words: List[str]
+        :type order: str
+        :rtype: bool
+        """
+        
+        orderMap = {}
+        i = 0
+        l = len(words)
+        for ch in order:
+            orderMap[ch] = i
+            i += 1
+            
+        for a in range(l-1):
+            if not self.compare(words[a], words[a+1], orderMap):
+                return False
+        return True
+            
+        
+        
+        
+        
+        

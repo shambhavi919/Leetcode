@@ -1,0 +1,15 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        d = {}
+        for c in s:
+            if c in d:
+                d[c] += 1
+            else:
+                d[c] = 1
+        print(d)    
+        t = sorted(d, key=d.get, reverse=True)
+        print(t)
+        new_str =""
+        for i in t:
+            new_str += i * d[i]
+        return new_str

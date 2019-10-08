@@ -1,0 +1,37 @@
+class Solution(object):
+    def output(self, cells, no):
+        i = 0
+        while (i < no):
+                new_cells = []
+                for c in range(8):
+                    if (c == 0 or c == 7):
+                        new_cells.append(0)
+                        continue
+                    else:
+                        if (cells[c-1] == cells[c+1]):
+                            new_cells.append(1)
+                        else:
+                            new_cells.append(0)
+                cells = new_cells
+                i += 1
+        return new_cells
+    
+    def prisonAfterNDays(self, cells, N):
+        """
+        :type cells: List[int]
+        :type N: int
+        :rtype: List[int]
+        """
+        i = 0
+        m = N % 14
+        
+        if(m == 0):
+            r = self.output(cells, 14)
+        else:
+            if( N < 15):
+                r = self.output(cells, N)
+            else:
+                r = self.output(cells, m)
+        
+        return r
+            

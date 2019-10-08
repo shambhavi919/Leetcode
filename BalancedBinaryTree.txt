@@ -1,0 +1,18 @@
+class Solution(object):
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        self.max_difference = 0
+        def helper(root):
+            if not root:
+                return(0)
+            else:
+                left = helper(root.left)
+                right = helper(root.right)
+                self.max_difference = max(self.max_difference,abs(left-right))
+                return(1+max(left,right))
+        
+        helper(root)
+        return(False if self.max_difference>1 else True)
