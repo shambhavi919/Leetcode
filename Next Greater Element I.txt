@@ -1,0 +1,17 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack = []
+        dictionary = {}
+        for i in range(len(nums2)):
+            while(stack and nums2[i] > stack[-1]):
+                dictionary[stack.pop()] = nums2[i]
+            stack.append(nums2[i])
+            
+        while(stack):
+            dictionary[stack.pop()] = -1
+            
+        res = []
+        for i in range(len(nums1)):
+            res.append(dictionary[nums1[i]])
+        return res
+        
